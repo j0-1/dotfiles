@@ -1,0 +1,62 @@
+" Get the defaults that most users want.
+source $VIMRUNTIME/defaults.vim
+
+if has("vms")
+  set nobackup		" do not keep a backup file, use versions instead
+else
+  set backup		" keep a backup file (restore to previous version)
+  if has('persistent_undo')
+    set undofile	" keep an undo file (undo changes after closing)
+  endif
+endif
+
+set hlsearch			" highlight all search matches
+set nocompatible		" don't maintain compatiblity with vi
+set number			" Display line numbers
+set hidden			" Allow buffer change w/o saving
+set lazyredraw			" Don't update while executing macros
+set backspace=indent,eol,start	" Sane backspace behavior
+set history=1000		" Remeber last 1000 commands
+set scrolloff=4			" Keep at least 4 lines below cursor
+
+syntax on
+
+" colorscheme jellybeans
+colorscheme lucius
+
+let mapleader = "\<Space>"
+
+nmap <leader>vr :sp $MYVIMRC<cr>
+nmap <leader>so :source $MYVIMRC<cr>
+
+imap jk <esc>
+imap kj <esc>
+imap <C-s> <esc>:w<cr>
+
+" Only do this part when compiled with support for autocommands.
+if has("autocmd")
+
+  " Put these in an autocmd group, so that we can delete them easily.
+  augroup vimrcEx
+  au!
+
+  " For all text files set 'textwidth' to 78 characters.
+  autocmd FileType text setlocal textwidth=78
+
+  augroup END
+
+else
+
+  set autoindent		" always set autoindenting on
+
+endif " has("autocmd")
+
+" Add optional packages.
+"
+" The matchit plugin makes the % command work better, but it is not backwards
+" compatible.
+" The ! means the package won't be loaded right away but when plugins are
+" loaded during initialization.
+if has('syntax') && has('eval')
+  packadd! matchit
+endif
