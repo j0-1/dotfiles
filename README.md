@@ -5,6 +5,7 @@ Just my personal dotfiles
 From homedir:
 * `ln -s dotfiles/vim/vimrc .vimrc`
 * `ln -s dotfiles/ag/agignore .agignore`
+* `ln -s dotfiles/git/gitignore .gitignore`
 
 ## Colors
 * Lucius2 https://github.com/maksimr/Lucius2
