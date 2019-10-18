@@ -9,12 +9,15 @@ From homedir:
 ## Colors
 * Lucius2 https://github.com/maksimr/Lucius2
 * Jellybeans https://github.com/nanotech/jellybeans.vim
+* OneDark https://github.com/joshdick/onedark.vim
 
 ```
 mkdir -p ~/.vim/colors
 cd ~/.vim/colors
 curl -O https://raw.githubusercontent.com/nanotech/jellybeans.vim/master/colors/jellybeans.vim
 curl -O https://raw.githubusercontent.com/maksimr/Lucius2/master/colors/lucius.vim
+
+git clone https://github.com/joshdick/onedark.vim.git ~/.vim/pack/minpac/opt/onedark.vim
 ```
 
 ## minpac
